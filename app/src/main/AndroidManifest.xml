@@ -9,20 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CellepTechCurso">
-        <activity android:name=".SplashActivity">
-            <intent-filter>
+        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".SplashActivity"> <!--  -->
+            <intent-filter> <!-- define qm é a launcher activity, entao apaguei a do main activity e deixei apenas a do splash -->
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
