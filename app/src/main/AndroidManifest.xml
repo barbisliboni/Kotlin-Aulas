@@ -2,14 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.barbaraliboni.celleptechcurso">
 
+    <!-- Solicitando permissão para acessar a Intenet do aparelho -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- permitir que o app se comunique com paginas web mesmo que as mesmas nao tenham protocolos de segurança, usamos o android:usesClearTextTraffic="true" -->
     <application
         android:allowBackup="true"
+        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CellepTechCurso">
-        <activity android:name=".CadastroActivity"></activity>
+        <activity android:name=".LayoutActivity"></activity>
+        <activity android:name=".CadastroActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".SplashActivity"> <!--  -->
             <intent-filter> <!-- define qm é a launcher activity, entao apaguei a do main activity e deixei apenas a do splash -->

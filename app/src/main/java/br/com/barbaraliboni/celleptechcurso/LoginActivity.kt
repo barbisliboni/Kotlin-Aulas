@@ -1,5 +1,6 @@
 package br.com.barbaraliboni.celleptechcurso
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -33,10 +34,15 @@ class LoginActivity : AppCompatActivity() {
             }else if(senha.isEmpty()) {
                 edtLoginSenha.error = "Campo obrigatório"
                 edtLoginSenha.requestFocus()
-            }else{ //campos nao estao vazios
+            }else{ //nesse else os campos nao estao vazios, entao seguira a linha de códigos abaixo
+
+                // Criando uma referência para o SharedPreferences
+                val sharedPrefs = getSharedPreferences("cadastro_$email", Context.MODE_PRIVATE); //validando o login
+                val emailLogin = sharedPrefs.getString("EMAIL", "");
+                val senhaLogin = sharedPrefs.getString("SENHA", "");
 
                 // Verificação do email e senha corretos
-                if (email == "teste@teste.com" && senha == "123"){
+                if (email == emailLogin && senha == senhaLogin){
 
                     // Exibindo uma mensagem para o usuário usando Toast (classe android para notificações)
                     Toast.makeText(this, "Usuário logado", Toast.LENGTH_LONG).show() //primeiro chamar a classe do Toast, depois usar a funçao makeText()
@@ -44,6 +50,8 @@ class LoginActivity : AppCompatActivity() {
 
                     // Abrindo a Activity
                     val mIntent = Intent(this, MainActivity::class.java)
+
+                    mIntent.putExtra("INTENT_EMAIL", email)
 
                     startActivity(mIntent)
                     finish()
